@@ -11,3 +11,256 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.toggle {
+  --width: 60px;
+  --height: calc(var(--width) / 2);
+  --border-radius: calc(var(--height) / 2);
+  
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+  top: 0px;  
+  margin: 12px;
+  opacity: 0.8;
+  z-index: 1;
+
+}
+
+.toggle__bg {
+  opacity: 0.5;
+  color: rgb(255, 255, 255);
+  padding: 6px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: monospace;
+  font-size: xx-small;
+  
+}
+
+.toggle__input {
+  display: none;
+}
+
+.toggle__fill {
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  background: #dddddd;
+  transition: background 0.2s;
+}
+
+.toggle__input:checked ~ .toggle__fill {
+  background: rgb(9, 255, 0);
+}
+
+.toggle__input:checked ~ span {
+  color: rgb(255, 255, 255);
+}
+
+.toggle__fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--height);
+  width: var(--height);
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: var(--border-radius);
+  transition: transform 0.2s;
+}
+
+.toggle__input:checked ~ .toggle__fill::after {
+  transform: translateX(var(--height));
+}
+
+/* Tooltip text */
+.toggle .tooltiptextOff {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgba(0, 0, 0, 0.0);
+  color: #fff;
+  text-align: center;
+  font-family: monospace;
+  font-size: small;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  top: 5px;
+  right: 105%;
+}
+
+.toggle .tooltiptextOn {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgba(0, 0, 0, 0.0);
+  color: #fff;
+  text-align: center;
+  font-family: monospace;
+  font-size: small;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  top: 5px;
+  right: 105%;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.toggle:hover .tooltiptextOn {
+  visibility: hidden;
+}
+
+.toggle:hover .tooltiptextOff {
+  visibility: visible;
+}
+
+.toggle:hover .toggle__input:checked ~ .tooltiptextOff {
+  visibility: hidden;
+}
+
+.toggle:hover .toggle__input:checked ~ .tooltiptextOn {
+  visibility: visible;
+}
+
+.extUnhealthy {
+  display: block;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  background-color: maroon;
+  width: 15px;
+  height: 15px;
+  opacity: 0.8;
+}
+
+.extUnhealthy-popup {
+  color: maroon;
+  padding: 6px 12px;
+  font-family: monospace;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 12px;
+  border-radius: 4px;
+}
+
+.excellent-popup {
+  color: aquamarine;
+  padding: 6px 12px;
+  font-family: monospace;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 12px;
+  border-radius: 4px;
+}
+
+.excellent {
+  display: block;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  background-color: aquamarine;
+  width: 15px;
+  height: 15px;
+  opacity: 0.8;
+}
+
+.good-popup {
+  color: aqua;
+  padding: 6px 12px;
+  font-family: monospace;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 12px;
+  border-radius: 4px;
+}
+
+.good {
+  display: block;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  background-color: aqua;
+  width: 15px;
+  height: 15px;
+  opacity: 0.8;
+}
+
+.moderate-popup {
+  color: yellowgreen;
+  padding: 6px 12px;
+  font-family: monospace;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 12px;
+  border-radius: 4px;
+}
+
+.moderate {
+  display: block;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  background-color: yellowgreen;
+  width: 15px;
+  height: 15px;
+  opacity: 0.8;
+}
+
+.unhealthy-popup {
+  color: tomato;
+  padding: 6px 12px;
+  font-family: monospace;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 12px;
+  border-radius: 4px;
+}
+
+.unhealthy {
+  display: block;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  background-color: tomato;
+  width: 15px;
+  height: 15px;
+  opacity: 0.8;
+}
+
+.map-container {
+  height: 650px;
+}
+
+.sidebar {
+  background-color: rgba(35, 55, 75, 0.9);
+  opacity: 0.5;
+  color: #fff;
+  padding: 6px 12px;
+  font-family: monospace;
+  font-size: x-large;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 12px;
+  border-radius: 4px;
+}
